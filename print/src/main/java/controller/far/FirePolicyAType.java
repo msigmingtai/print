@@ -17,6 +17,8 @@ import commans.function.ChangeCode;
 import model.entity.FirePolicyEntity;
 
 /**
+ * 黑白列印A單
+ * 
  * @author 50123
  * @version 103.09.16
  * 
@@ -57,24 +59,30 @@ public class FirePolicyAType extends PrintPolicyBasic<FirePolicyEntity>
 		    // 載入圖檔
 		    document.add(jpeg);
 		    // 寫入PDF
-		    // 保單號
-		    // 保單號
+
 		    // BarcodeQRCode qrcode = new
 		    // BarcodeQRCode(ply.getNEWPLY(),1,1,null);
-		    Barcode39 code39=new Barcode39();
-		    code39.setCode(ply.getNEWPLY());
+		    // Barcode39 code39=new Barcode39();
+		    // code39.setCode(ply.getNEWPLY());
 		    // Image imgcode =
 		    // code39.createImageWithBarcode(cb,null,null);
 		    // Image imgQRcode = qrcode.getImage();
 		    // imgQRcode.scaleAbsolute(100,20); // 設定大小
 		    // imgQRcode.setAbsolutePosition(490,790);// 設定在PDF上的絕對位子
 		    // document.add(imgQRcode);
+		    
+		    //保單號
 		    document.add(new Paragraph(-2,"                          "+ply.getNEWPLY().substring(0,2)+"         "+ply.getNEWPLY().substring(2,10)+"                                       "+ply.getPLYNO(),FontChinese));
-		    // 被保人
+		    //簽單日
+		    document.add(new Paragraph(0,"                                                                                                                                                                 "+ply.getISSUE_DAY().substring(0,3)+"      "+ply.getISSUE_DAY().substring(3,5)+"     "+ply.getISSUE_DAY().substring(5,7),FontChinese));
+		    
+		    // 要保人
 		    document.add(new Paragraph(21,"                   "+ply.getFASRCNAME()+"                                                                                             "+ply.getAREANO()+ply.getADDR().substring(0,15)+"                     ",FontChinese2));
 		    document.add(new Paragraph(-12,"                                                                                                                                                                          "+ply.getADDR().substring(15),FontChinese2));
 		    document.add(new Paragraph(12,"                                               "+ply.getFASRIDNO()+"                   "+ply.getTEL(),FontChinese));
-		    // 要保人
+		    // 關係
+		    document.add(new Paragraph(0,"                                                                                                                                                                                                                                                     "+transRelate(ply.getRELATE()),FontChinese1));
+		    // 被保人
 		    document.add(new Paragraph(16,"                   "+ply.getINSDNAME()+"                                                                                             "+ply.getAREANO()+ply.getADDR().substring(0,15)+"                     ",FontChinese2));
 		    document.add(new Paragraph(-5,"                                                                                                                                                                          "+ply.getADDR().substring(15),FontChinese2));
 		    document.add(new Paragraph(12,"                                              "+ply.getIDNO()+"                   "+ply.getTEL(),FontChinese));
@@ -109,7 +117,7 @@ public class FirePolicyAType extends PrintPolicyBasic<FirePolicyEntity>
 		    document.add(new Paragraph(20,"     02                                                                              "+ChangeCode.CatZero(ply.getEAMT())+"          "+"0.9        "+"1/1        "+ChangeCode.CatZero(ply.getEPREM()),FontChinese));
 		    document.add(new Paragraph(0,"                                                                                                                                                                                     "+getConstClass(ply.getCONSTCLASS()),FontChinese));
 		    // 備註
-		    document.add(new Paragraph(28,"       自101年1月1日起，住宅地震基本保險最高賠償責任調整為新台幣150萬元。",FontChinese1));
+		    document.add(new Paragraph(28,"       本保險單承保建築物之範圍係以抵押權者抵押部分為限。",FontChinese1));
 		    // 抵押權人 //貸款編號
 		    document.add(new Paragraph(14,"                                                                                                              "+ply.getBANKKEY(),FontChinese));
 		    document.add(new Paragraph(14,"                                                                                                     "+ply.getMTG()+"                                        "+ply.getAGENTUNIT(),FontChinese));

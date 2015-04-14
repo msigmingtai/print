@@ -64,5 +64,6 @@ public class FirePolicyEntity extends BasicPolicyEntity
     private String AMTV;// 訪客險保額
     private String PREMV;// 訪客險保費
     private String RATEV;// 訪客險費率
+    private String ISSUE_DAY;//簽單日期
 
 }

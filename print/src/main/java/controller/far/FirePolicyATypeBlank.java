@@ -17,7 +17,7 @@ import commans.function.ErrorWindows;
 
 import model.entity.FirePolicyEntity;
 
-//住火套表
+//住火套表 【套表列印A單】
 public class FirePolicyATypeBlank extends PrintPolicyBasic<FirePolicyEntity>
 {
 
@@ -58,15 +58,18 @@ public class FirePolicyATypeBlank extends PrintPolicyBasic<FirePolicyEntity>
 		{
 		    commit=commit+1;
 		    // 寫入PDF
-		    // 保單號
-		    // 保單號
+
 		    // 保單號
 		    document.add(new Paragraph(8,"                        "+ply.getNEWPLY().substring(0,2)+"         "+ply.getNEWPLY().substring(2,10)+"                                       "+ply.getPLYNO()+"                                  ",FontChinese));
-		    // 被保人
+		    // 簽單日
+		    document.add(new Paragraph(0,"                                                                                                                                                                 "+ply.getISSUE_DAY().substring(0,3)+"      "+ply.getISSUE_DAY().substring(3,5)+"     "+ply.getISSUE_DAY().substring(5,7),FontChinese));
+		    // 要保人
 		    document.add(new Paragraph(21,"                   "+ply.getFASRCNAME()+"                                                                                             "+ply.getAREANO()+ply.getADDR().substring(0,15)+"                     ",FontChinese2));
 		    document.add(new Paragraph(-12,"                                                                                                                                                                          "+ply.getADDR().substring(15),FontChinese2));
 		    document.add(new Paragraph(12,"                                               "+ply.getFASRIDNO()+"                   "+ply.getTEL(),FontChinese));
-		    // 要保人
+		    // 關係
+		    document.add(new Paragraph(0,"                                                                                                                                                                                                                                                     "+transRelate(ply.getRELATE()),FontChinese1));
+		    // 被保人
 		    document.add(new Paragraph(14,"                   "+ply.getINSDNAME()+"                                                                                             "+ply.getAREANO()+ply.getADDR().substring(0,15)+"                     ",FontChinese2));
 		    document.add(new Paragraph(-5,"                                                                                                                                                                          "+ply.getADDR().substring(15),FontChinese2));
 		    document.add(new Paragraph(12,"                                              "+ply.getIDNO()+"                   "+ply.getTEL(),FontChinese));
@@ -112,7 +115,7 @@ public class FirePolicyATypeBlank extends PrintPolicyBasic<FirePolicyEntity>
 		    {
 			document.add(new Paragraph(" "));
 		    }
-		    document.add(new Paragraph(16,"      自101年1月1日起，住宅地震基本保險最高賠償責任調整為新台幣150萬元。",FontChinese1));
+		    document.add(new Paragraph(16,"      本保險單承保建築物之範圍係以抵押權者抵押部分為限。",FontChinese1));
 		    // 備註
 		    // 貸款編號
 		    document.add(new Paragraph(16,"                                                                                                              "+ply.getBANKKEY(),FontChinese));

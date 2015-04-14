@@ -53,7 +53,7 @@ public abstract class PrintPolicyBasic<T extends BasicPolicyEntity> extends
     public static BaseFont bfChinese;
     public static Font FontChinese;
     public static Font FontChinese1;
-    public static Font FontChinese2;
+    public static Font FontChinese2;    
     public final static String policy_type_A="A";
     public final static String policy_type_W="W";
     public final static String policy_type_G="G";
@@ -135,7 +135,7 @@ public abstract class PrintPolicyBasic<T extends BasicPolicyEntity> extends
 	bfChinese=BaseFont.createFont("C:\\windows\\fonts\\MINGLIU.TTC,1",BaseFont.IDENTITY_H,BaseFont.NOT_EMBEDDED);
 	FontChinese=new Font(bfChinese,10,Font.NORMAL);
 	FontChinese1=new Font(bfChinese,7,Font.NORMAL);
-	FontChinese2=new Font(bfChinese,8,Font.NORMAL);
+	FontChinese2=new Font(bfChinese,8,Font.NORMAL);	
 	setVisible(true);
 
     }
@@ -298,6 +298,31 @@ public abstract class PrintPolicyBasic<T extends BasicPolicyEntity> extends
 	}
 	return constclass;
     }
+    public String transRelate(String relate)
+    {
+	String relateName = " ";
+	if(relate.equals("1"))
+	{
+	    relateName="本人及其家屬";
+	}
+	else if(relate.equals("2"))
+	{
+	    relateName="同一法人";
+	}
+	else if(relate.equals("3"))
+	{
+	    relateName="契約";
+	}
+	else if(relate.equals("4"))
+	{
+	    relateName="其他";
+	}else
+	{
+	    relateName=" ";
+	}
+	
+	return relateName;
+    }
 
     public String getTotalAmount(String fireprem, String eprem)
     {
@@ -376,7 +401,7 @@ public abstract class PrintPolicyBasic<T extends BasicPolicyEntity> extends
 	{
 	    v_amt=0;
 	}
-	v_amt=v_amt/1000;
+	v_amt = v_amt / 1000;
 	if(v_amt==1)
 	{
 	    productamt="50";

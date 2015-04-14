@@ -16,8 +16,8 @@ import commans.function.ChangeCode;
 import model.entity.FirePolicyEntity;
 
 /**
+ * 【屋主續保列印】
  * 屋主甲式底圖續保無新保單號
- * 
  * @author 50123
  * @version 103.09.16
  * 
@@ -47,6 +47,9 @@ public class FirePolicyWTypeAuto extends PrintPolicyBasic<FirePolicyEntity>
 	document.add(new Paragraph(0,"                                                                                                       "+CatZero(ply.getFBIRTH().substring(0,3))+"       "+CatZero(ply.getFBIRTH().substring(3,5))+"        "+CatZero(ply.getFBIRTH().substring(5,7)),FontChinese));
 	document.add(new Paragraph(7,"                                                                                                                                                                                "+ply.getADDR().substring(15),FontChinese2));
 	document.add(new Paragraph(12,"                                                     "+ply.getFASRIDNO()+"                   "+ply.getTEL(),FontChinese));
+        //關係   
+	document.add(new Paragraph(0,"                                                                                                                                                                                                                                                                "+transRelate(ply.getRELATE()),FontChinese1));
+	
 	if(ply.getFSEX().equals("1"))
 	{
 	    document.add(new Paragraph(0,"V",FontChinese));
@@ -122,7 +125,7 @@ public class FirePolicyWTypeAuto extends PrintPolicyBasic<FirePolicyEntity>
 	// 貸款編號
 	document.add(new Paragraph(0,"                                                                                                                         "+ply.getBANKKEY(),FontChinese));
 	// 附註
-	document.add(new Paragraph(14,"                           自101年1月1日起，住宅地震基本保險最高賠償責任調整為新台幣150萬元。",FontChinese));
+	document.add(new Paragraph(14,"                           本保險單承保建築物之範圍係以抵押權者抵押部分為限。",FontChinese));
 	document.add(new Paragraph(" "));
 	document.add(new Paragraph(" "));
 	document.add(new Paragraph(" "));

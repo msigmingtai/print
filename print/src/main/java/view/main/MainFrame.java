@@ -70,7 +70,7 @@ public class MainFrame extends JFrame
 	    {
 		if(showboxflag)
 		{
-		    new FirePolicyFrame();
+		    new FirePolicyFrame();		    
 		    showboxflag=false;
 		}
 	    }

@@ -36,7 +36,7 @@ public final class FirePolicyFrame extends JFrame implements ActionListener
      */
     private static final long serialVersionUID=7223030681976274137L;
     private static final JLabel lb=new JLabel("請選擇要保書列印資料檔 ",JLabel.LEFT);
-    private static final JLabel lb1=new JLabel("請選擇要保書列種類",JLabel.LEFT);
+    private static final JLabel lb1=new JLabel("請選擇要保書種類",JLabel.LEFT);
     private static final JComboBox<String> cb1=new JComboBox<String>();
     private static final String basePrint="套表列印";
     private static final String BWPrint="黑白列印";
@@ -47,7 +47,7 @@ public final class FirePolicyFrame extends JFrame implements ActionListener
     private static FirePolicy firepolicy=new FirePolicy();
 
     private JButton OpenButton=new JButton("開啟");
-    private JButton CreatPDFButton=new JButton("\u8981\u4FDD\u66F8\u5217\u5370");
+    private JButton CreatPDFButton=new JButton("要保書列印");
     private JButton CloseButton=new JButton("關閉");
     private int ret=1;
     private JFileChooser fc=new JFileChooser();
@@ -74,8 +74,8 @@ public final class FirePolicyFrame extends JFrame implements ActionListener
 	cp.add(lb1);
 	cb1.setModel(new DefaultComboBoxModel<String>(new String[] { "丙式列印", "住火續保列印", "屋主續保列印", "家庭成員", "基本地震險" }));
 	cb1.setBounds(149,41,89,23);
-	cb1.addItem(basePrint);
-	cb1.addItem(BWPrint);
+	cb1.addItem(basePrint);//套表列印
+	cb1.addItem(BWPrint);//黑白列印
 	cp.add(cb1);
 	CreatPDFButton.setBounds(10,70,109,25);
 	cp.add(CreatPDFButton);
@@ -85,7 +85,7 @@ public final class FirePolicyFrame extends JFrame implements ActionListener
 	CloseButton.addActionListener(this);
 	setTitle("明台產物保險要保書列印程式");
 	setSize(255,135);
-	setLocationRelativeTo(null); // 視窗至中
+	setLocationRelativeTo(null); // 視窗置中
 	setResizable(false);
 	setVisible(true);
 	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -143,7 +143,7 @@ public final class FirePolicyFrame extends JFrame implements ActionListener
 			if(cb1.getSelectedItem().equals(basePrint))
 			{
 			    // None Background
-			    PrintNobackground();
+			    PrintNobackground(); //套表列印
 			}
 			else if(cb1.getSelectedItem().equals("丙式列印"))
 			{
@@ -181,7 +181,7 @@ public final class FirePolicyFrame extends JFrame implements ActionListener
 			}
 			else
 			{ // Have background
-			    PrintPolicy();
+			    PrintPolicy(); //黑白列印
 			}
 		    }
 		}

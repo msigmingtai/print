@@ -18,7 +18,9 @@ import com.lowagie.text.Document;
 import commans.basic.PrintPolicyBasic;
 import commans.function.ChangeCode;
 
-//屋主丙式
+
+//丙式列印
+//屋主丙式  
 public class FirePolicyXType extends PrintPolicyBasic<FirePolicyEntity>
 {
 

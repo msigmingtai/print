@@ -77,6 +77,7 @@ public class FirePolicy extends BasicPolicy<FirePolicyEntity>
 	    ply.setAMTV(Line.substring(516,525));
 	    ply.setPREMV(Line.substring(525,532));
 	    ply.setRATEV(Line.substring(532,538));
+	    ply.setISSUE_DAY(Line.substring(538,545));
 	    // 取得保單號單位及歸屬
 	    ply.setUnitName(new UnitClass().GetUnit(Line.substring(421,423),Line.substring(363,365)));
 	    policys.add(ply);

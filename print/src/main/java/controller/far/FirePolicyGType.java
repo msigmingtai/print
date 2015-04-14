@@ -15,7 +15,7 @@ import commans.function.ChangeCode;
 
 import model.entity.FirePolicyEntity;
 
-//家庭成員綜合險
+//家庭成員綜合險 
 public class FirePolicyGType extends PrintPolicyBasic<FirePolicyEntity>
 {
 

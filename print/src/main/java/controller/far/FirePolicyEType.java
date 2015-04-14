@@ -17,6 +17,7 @@ import commans.function.ChangeCode;
 import model.entity.FirePolicyEntity;
 
 /**
+ * 【基本地震險】
  * @author 50123
  * @version 103.09.16
  * 
@@ -70,11 +71,11 @@ public class FirePolicyEType extends PrintPolicyBasic<FirePolicyEntity>
 		    // imgQRcode.setAbsolutePosition(490,790);// 設定在PDF上的絕對位子
 		    // document.add(imgQRcode);
 		    document.add(new Paragraph(7,"                                                                                            "+ply.getNEWPLY(),FontChinese));
-		    // 被保人
+		    // 要保人
 		    document.add(new Paragraph(21,"                   "+ply.getFASRCNAME()+"                                                                                      "+ply.getAREANO()+ply.getADDR().substring(0,15)+"                     ",FontChinese2));
 		    document.add(new Paragraph(-12,"                                                                                                                                                                    "+ply.getADDR().substring(15),FontChinese2));
 		    document.add(new Paragraph(12,"                                              "+ply.getFASRIDNO()+"                  "+ply.getTEL(),FontChinese));
-		    // 要保人
+		    // 被保人
 		    document.add(new Paragraph(16,"                   "+ply.getINSDNAME()+"                                                                                       "+ply.getAREANO()+ply.getADDR().substring(0,15)+"                     ",FontChinese2));
 		    document.add(new Paragraph(-5,"                                                                                                                                                                     "+ply.getADDR().substring(15),FontChinese2));
 		    document.add(new Paragraph(12,"                                              "+ply.getIDNO()+"                  "+ply.getTEL(),FontChinese));
