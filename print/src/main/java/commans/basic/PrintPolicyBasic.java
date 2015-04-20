@@ -128,7 +128,7 @@ public abstract class PrintPolicyBasic<T extends BasicPolicyEntity> extends
 	progressBar.setValue(0);
 	progressBar.setMaximum(100);
 	contentPane.add(progressBar);
-	JLabel lblNewLabel=new JLabel("\u7522\u751F\u4E2D...........");
+	JLabel lblNewLabel=new JLabel("\u7522\u751F\u4E2D..........."); //產生中......
 	lblNewLabel.setBounds(56,13,217,19);
 	contentPane.add(lblNewLabel);
 	// 設定字型
@@ -247,7 +247,7 @@ public abstract class PrintPolicyBasic<T extends BasicPolicyEntity> extends
     {
 	for(T ply : obj)
 	{
-	    this.totalBytes=this.totalBytes+1;
+	    this.totalBytes=this.totalBytes+1;	  
 	}
     }
 
